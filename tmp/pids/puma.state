@@ -1,0 +1,5 @@
+---
+pid: 28152
+control_url: tcp://127.0.0.1:9293
+control_auth_token: 8dcbf57e000ee5d631963137777f84f6
+running_from: "/home/luka/RubymineProjects/doorkeeper-sinatra-client"

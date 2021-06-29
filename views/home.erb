@@ -1,26 +1,24 @@
 <% unless signed_in? %>
   <h2>Getting started</h2>
 
-  <p>In order to test the client, you'll need to login in <code><%= site_host %></code>.</p>
+  <p>Для перевірки роботи модулю потрібно авторизуватися в провайдері: <code><%= site_host %></code>.</p>
   <p>
-    You will be prompted for an username and password. Use <code>user@example.com</code> and
-    <code>doorkeeper</code> or create your own user.</p>
 
   <p>
     <% unless signed_in? %>
     <a href="/sign_in" class="btn btn-success" role="button">
-      Sign in on <%= site_host %>
+      Увійти через <%= site_host %>
     </a>
     <a href="/public_sign_in" class="btn btn-success" role="button">
-      Sign in with the public client on <%= site_host %>
+      Увійти через за допомогою публічного клієнту <%= site_host %>
     </a>
     <% end %>
   </p>
 <% else %>
-  <h2>Explore the API</h2>
+  <h2>Перевірка роботи</h2>
 
-  <p>Congratulations! You just authorized this client to fetch data from <code><%= site_host %></code> using OAuth2.</p>
-  <p>Click on the buttons below to explore <code><%= site_host %></code> API</p>
+  <p>Клієнт авотризовано на  <code><%= site_host %></code> за допомогою OAuth2.</p>
+  <p>Перевірка <code><%= site_host %></code> API</p>
 
   <p>
     <a class="btn btn-outline-primary" href="/explore/me.json" data-explore>My Credentials</a>
@@ -28,18 +26,8 @@
     <a class="btn btn-outline-secondary" href="/sign_out" class="btn primary">Sign out</a>
   </p>
 
-  <p id="display-json">Click on the buttons above, the response will show here.</p>
+  <p id="display-json"></p>
 
   <p>Your access token: <code><%= session[:access_token] %></code></p>
   <p><a class="btn btn-outline-secondary" href="/refresh" title="<%= session[:refresh_token] %>">Refresh Access Token</a></p>
 <% end %>
-
-<p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseReadme" aria-expanded="false" aria-controls="collapseExample">
-    See how this client works
-  </button>
-</p>
-
-<div class="collapse" id="collapseReadme">
-  <%= markdown_readme %>
-</div>
